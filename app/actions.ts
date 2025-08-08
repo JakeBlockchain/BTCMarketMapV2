@@ -1,6 +1,6 @@
 "use server"
 
-import { db } from "@/db"
+import { getDb } from "@/db"
 import { categories, ecosystems, projects } from "@/db/schema"
 import { asc, eq } from "drizzle-orm"
 import { revalidatePath } from "next/cache"
@@ -68,6 +68,7 @@ export async function getCategoriesWithEcosystems(): Promise<
   CategoryWithEcosystems[]
 > {
   try {
+    const db = getDb()
     const result = await db.query.categories.findMany({
       orderBy: [asc(categories.sortOrder)],
       with: {
@@ -121,6 +122,7 @@ export async function getEcosystemDetails(
   slug: string
 ): Promise<EcosystemWithProjects | null> {
   try {
+    const db = getDb()
     const result = await db.query.ecosystems.findFirst({
       where: eq(ecosystems.slug, slug),
       with: {
@@ -166,6 +168,7 @@ export async function getEcosystemDetails(
 
 export async function getAllCategories() {
   try {
+    const db = getDb()
     const result = await db.query.categories.findMany({
       orderBy: [asc(categories.sortOrder)]
     })
@@ -178,6 +181,7 @@ export async function getAllCategories() {
 
 export async function getCategoryById(id: string) {
   try {
+    const db = getDb()
     const result = await db.query.categories.findFirst({
       where: eq(categories.id, id)
     })
@@ -190,6 +194,7 @@ export async function getCategoryById(id: string) {
 
 export async function getAllEcosystems() {
   try {
+    const db = getDb()
     const result = await db.query.ecosystems.findMany({
       orderBy: [asc(ecosystems.name)],
       with: {
@@ -205,6 +210,7 @@ export async function getAllEcosystems() {
 
 export async function getEcosystemById(id: string) {
   try {
+    const db = getDb()
     const result = await db.query.ecosystems.findFirst({
       where: eq(ecosystems.id, id),
       with: {
@@ -220,6 +226,7 @@ export async function getEcosystemById(id: string) {
 
 export async function getAllProjects() {
   try {
+    const db = getDb()
     const result = await db.query.projects.findMany({
       orderBy: [asc(projects.name)],
       with: {
@@ -239,6 +246,7 @@ export async function getAllProjects() {
 
 export async function getProjectById(id: string) {
   try {
+    const db = getDb()
     const result = await db.query.projects.findFirst({
       where: eq(projects.id, id),
       with: {
@@ -264,6 +272,7 @@ export async function createCategory(
   data: CreateCategoryData
 ): Promise<ActionResult> {
   try {
+    const db = getDb()
     // Check for duplicate slug
     const existingCategory = await db.query.categories.findFirst({
       where: eq(categories.slug, data.slug)
@@ -307,6 +316,7 @@ export async function updateCategory(
   data: UpdateCategoryData
 ): Promise<ActionResult> {
   try {
+    const db = getDb()
     // Check for duplicate slug (excluding current category)
     const existingCategory = await db.query.categories.findFirst({
       where: eq(categories.slug, data.slug)
@@ -356,6 +366,7 @@ export async function updateCategory(
 
 export async function deleteCategory(id: string): Promise<ActionResult> {
   try {
+    const db = getDb()
     // Check if category has ecosystems
     const categoryWithEcosystems = await db.query.categories.findFirst({
       where: eq(categories.id, id),
@@ -410,6 +421,7 @@ export async function createEcosystem(
   data: CreateEcosystemData
 ): Promise<ActionResult> {
   try {
+    const db = getDb()
     // Check for duplicate slug
     const existingEcosystem = await db.query.ecosystems.findFirst({
       where: eq(ecosystems.slug, data.slug)
@@ -467,6 +479,7 @@ export async function updateEcosystem(
   data: UpdateEcosystemData
 ): Promise<ActionResult> {
   try {
+    const db = getDb()
     // Check for duplicate slug (excluding current ecosystem)
     const existingEcosystem = await db.query.ecosystems.findFirst({
       where: eq(ecosystems.slug, data.slug)
@@ -530,6 +543,7 @@ export async function updateEcosystem(
 
 export async function deleteEcosystem(id: string): Promise<ActionResult> {
   try {
+    const db = getDb()
     // Check if ecosystem has projects
     const ecosystemWithProjects = await db.query.ecosystems.findFirst({
       where: eq(ecosystems.id, id),
@@ -585,6 +599,7 @@ export async function createProject(
   data: CreateProjectData
 ): Promise<ActionResult> {
   try {
+    const db = getDb()
     // Verify ecosystem exists
     const ecosystem = await db.query.ecosystems.findFirst({
       where: eq(ecosystems.id, data.ecosystemId)
@@ -630,6 +645,7 @@ export async function updateProject(
   data: UpdateProjectData
 ): Promise<ActionResult> {
   try {
+    const db = getDb()
     // Verify ecosystem exists
     const ecosystem = await db.query.ecosystems.findFirst({
       where: eq(ecosystems.id, data.ecosystemId)
@@ -681,6 +697,7 @@ export async function updateProject(
 
 export async function deleteProject(id: string): Promise<ActionResult> {
   try {
+    const db = getDb()
     // Get project with ecosystem info for cache revalidation
     const projectWithEcosystem = await db.query.projects.findFirst({
       where: eq(projects.id, id),

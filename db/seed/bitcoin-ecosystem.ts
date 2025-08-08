@@ -1,8 +1,10 @@
-import { db } from "../index"
+import { getDb } from "../index"
 import { categories, ecosystems, projects } from "../schema/index"
 
 export async function seedBitcoinEcosystem() {
   console.log("🌱 Seeding Bitcoin ecosystem data...")
+
+  const db = getDb()
 
   // Insert categories
   const categoryData = [
@@ -53,7 +55,7 @@ export async function seedBitcoinEcosystem() {
 
   // Create a map for easy category lookup
   const categoryMap = insertedCategories.reduce(
-    (acc, cat) => {
+    (acc: Record<string, string>, cat) => {
       acc[cat.slug] = cat.id
       return acc
     },
@@ -139,7 +141,7 @@ export async function seedBitcoinEcosystem() {
 
   // Create ecosystem map for projects
   const ecosystemMap = insertedEcosystems.reduce(
-    (acc, eco) => {
+    (acc: Record<string, string>, eco) => {
       acc[eco.slug] = eco.id
       return acc
     },

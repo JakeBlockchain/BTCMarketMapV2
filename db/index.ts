@@ -14,11 +14,6 @@ import {
 
 config({ path: ".env.local" })
 
-const databaseUrl = process.env.DATABASE_URL
-if (!databaseUrl) {
-  throw new Error("DATABASE_URL is not set")
-}
-
 const dbSchema = {
   // tables
   customers,
@@ -37,4 +32,21 @@ function initializeDb(url: string) {
   return drizzlePostgres(client, { schema: dbSchema })
 }
 
-export const db = initializeDb(databaseUrl)
+// Create a lazy-initialized database connection
+let _db: ReturnType<typeof initializeDb> | null = null
+
+export function getDb() {
+  const databaseUrl = process.env.DATABASE_URL
+  if (!databaseUrl) {
+    throw new Error("DATABASE_URL is not set")
+  }
+
+  if (!_db) {
+    _db = initializeDb(databaseUrl)
+  }
+
+  return _db
+}
+
+// For backward compatibility, but only initialize if DATABASE_URL is available
+export const db = process.env.DATABASE_URL ? getDb() : (null as any)
