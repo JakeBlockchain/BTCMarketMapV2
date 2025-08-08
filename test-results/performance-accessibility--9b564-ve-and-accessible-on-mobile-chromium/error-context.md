@@ -1,0 +1,176 @@
+# Page snapshot
+
+```yaml
+- text: 🧡 Welcome fellow Bitcoiner
+- button "Dismiss banner"
+- banner:
+  - navigation "Global":
+    - link "Bitcoin Market Map":
+      - /url: /
+    - button "Open main menu"
+- heading "Bitcoin Ecosystem Market Map" [level=1]
+- paragraph: Explore the comprehensive landscape of Bitcoin development across different layers and protocols
+- heading "Bitcoin L1" [level=2]
+- paragraph: The base Bitcoin blockchain layer
+- link "Bitcoin Core logo Bitcoin Core The original Bitcoin implementation":
+  - /url: /ecosystem/bitcoin-core
+  - img "Bitcoin Core logo"
+  - heading "Bitcoin Core" [level=3]
+  - paragraph: The original Bitcoin implementation
+- heading "Lightning Network" [level=2]
+- paragraph: Layer 2 payment channels for instant Bitcoin transactions
+- link "Lightning Network logo Lightning Network The Lightning Network protocol":
+  - /url: /ecosystem/lightning-network
+  - img "Lightning Network logo"
+  - heading "Lightning Network" [level=3]
+  - paragraph: The Lightning Network protocol
+- heading "Meta-Protocols" [level=2]
+- paragraph: Protocols built on top of Bitcoin using inscriptions and ordinals
+- link "BRC-20 Fungible token standard using ordinals":
+  - /url: /ecosystem/brc-20
+  - heading "BRC-20" [level=3]
+  - paragraph: Fungible token standard using ordinals
+- link "Ordinals A protocol for inscribing data on Bitcoin":
+  - /url: /ecosystem/ordinals
+  - heading "Ordinals" [level=3]
+  - paragraph: A protocol for inscribing data on Bitcoin
+- heading "Sidechains" [level=2]
+- paragraph: Independent blockchains pegged to Bitcoin
+- link "Liquid Network logo Liquid Network A Bitcoin sidechain for faster, confidential transactions":
+  - /url: /ecosystem/liquid
+  - img "Liquid Network logo"
+  - heading "Liquid Network" [level=3]
+  - paragraph: A Bitcoin sidechain for faster, confidential transactions
+- link "Stacks logo Stacks A Bitcoin layer for smart contracts and DeFi":
+  - /url: /ecosystem/stacks
+  - img "Stacks logo"
+  - heading "Stacks" [level=3]
+  - paragraph: A Bitcoin layer for smart contracts and DeFi
+- heading "Rollups" [level=2]
+- paragraph: Layer 2 scaling solutions that settle on Bitcoin
+- link "Merlin Chain A Bitcoin Layer 2 solution":
+  - /url: /ecosystem/merlin-chain
+  - heading "Merlin Chain" [level=3]
+  - paragraph: A Bitcoin Layer 2 solution
+- heading "Off-chain" [level=2]
+- paragraph: Solutions that operate outside the Bitcoin blockchain
+- link "Fedimint Federated e-cash system for Bitcoin":
+  - /url: /ecosystem/fedimint
+  - heading "Fedimint" [level=3]
+  - paragraph: Federated e-cash system for Bitcoin
+- link "Spark":
+  - /url: /ecosystem/spark
+  - heading "Spark" [level=3]
+- contentinfo "Footer":
+  - heading "Footer" [level=2]
+  - link "Bitcoin Market Map":
+    - /url: /
+  - paragraph: Explore the comprehensive landscape of Bitcoin ecosystem projects, platforms, and innovations. Discover the future of Bitcoin development.
+  - link "X":
+    - /url: https://x.com/bitcoinmarketmap
+  - link "GitHub":
+    - /url: https://github.com/bitcoinmarketmap
+  - link "YouTube":
+    - /url: https://youtube.com/@bitcoinmarketmap
+  - heading "Product" [level=3]
+  - list:
+    - listitem:
+      - link "Market Map":
+        - /url: /market-map
+    - listitem:
+      - link "Features":
+        - /url: /features
+    - listitem:
+      - link "Pricing":
+        - /url: /pricing
+    - listitem:
+      - link "Ecosystem Directory":
+        - /url: /market-map
+  - heading "Company" [level=3]
+  - list:
+    - listitem:
+      - link "About":
+        - /url: /about
+    - listitem:
+      - link "Contact":
+        - /url: /contact
+    - listitem:
+      - link "Blog":
+        - /url: "#"
+    - listitem:
+      - link "Press":
+        - /url: "#"
+  - heading "Resources" [level=3]
+  - list:
+    - listitem:
+      - link "Bitcoin Resources":
+        - /url: "#"
+    - listitem:
+      - link "Developer Guides":
+        - /url: "#"
+    - listitem:
+      - link "API Documentation":
+        - /url: "#"
+    - listitem:
+      - link "Community":
+        - /url: "#"
+  - heading "Legal" [level=3]
+  - list:
+    - listitem:
+      - link "Privacy Policy":
+        - /url: "#"
+    - listitem:
+      - link "Terms of Service":
+        - /url: "#"
+    - listitem:
+      - link "Cookie Policy":
+        - /url: "#"
+    - listitem:
+      - link "License":
+        - /url: "#"
+  - paragraph: © 2025 Bitcoin Market Map. All rights reserved.
+- paragraph: Love this template?
+- paragraph: Star us on GitHub!
+- link "Start Building":
+  - /url: https://github.com/mckaywrigley/mckays-app-template
+- button "Dismiss":
+  - img
+- text: xs
+- region "Notifications alt+T"
+- alert
+- button "Open issues overlay":
+  - img
+  - text: 1 Issue
+- navigation:
+  - button "previous" [disabled]:
+    - img "previous"
+  - text: 1/1
+  - button "next" [disabled]:
+    - img "next"
+- img
+- link "Next.js 15.3.3 (stale) Turbopack":
+  - /url: https://nextjs.org/docs/messages/version-staleness
+  - img
+  - text: Next.js 15.3.3 (stale) Turbopack
+- img
+- dialog "Build Error":
+  - text: Build Error
+  - button "Copy Stack Trace":
+    - img
+  - link "Go to related documentation":
+    - /url: https://nextjs.org/docs/app/api-reference/directives/use-client
+    - img
+  - link "Learn more about enabling Node.js inspector for server code with Chrome DevTools":
+    - /url: https://nextjs.org/docs/app/building-your-application/configuring/debugging#server-side-code
+    - img
+  - paragraph: Ecmascript file had an error
+  - img
+  - text: ./app/(unauthenticated)/(marketing)/ecosystem/[slug]/page.tsx (299:23)
+  - button "Open in editor":
+    - img
+  - text: "Ecmascript file had an error 297 | 298 | // Generate metadata for SEO > 299 | export async function generateMetadata({ params }: EcosystemDetailPageProps) { | ^^^^^^^^^^^^^^^^ 300 | const ecosystem = await getEcosystemDetails(params.slug) 301 | 302 | if (!ecosystem) { You are attempting to export \"generateMetadata\" from a component marked with \"use client\", which is disallowed. Either remove the export, or the \"use client\" directive. Read more:"
+  - link "https://nextjs.org/docs/app/api-reference/directives/use-client":
+    - /url: https://nextjs.org/docs/app/api-reference/directives/use-client
+- contentinfo:
+  - paragraph: This error occurred during the build process and can only be dismissed by fixing the error.
+```

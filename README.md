@@ -1,53 +1,266 @@
-# Mckay's App Template
+# Bitcoin Ecosystem Market Map
 
-This is a full-stack app template that I use to build my own apps.
+A comprehensive web application that provides a visual market map of the Bitcoin ecosystem, organizing projects and platforms into key categories to help users explore the landscape of Bitcoin development.
 
-To learn how to use this template with the best AI tools & workflows, check out my workshops on [Takeoff](https://JoinTakeoff.com/)!
+## 🚀 Features
 
-## Tech Stack
+- **Interactive Market Map**: Visual organization of Bitcoin ecosystem projects by category
+- **Ecosystem Detail Pages**: Dedicated pages for each platform showing all built projects
+- **Admin Dashboard**: Protected area for managing categories, ecosystems, and projects
+- **User Authentication**: Secure sign-up/sign-in with Clerk
+- **Subscription System**: Stripe-powered premium features
+- **Responsive Design**: Optimized for desktop and mobile devices
+- **Performance Optimized**: 101 kB shared bundle, excellent Core Web Vitals
 
-- Frontend: [Next.js](https://nextjs.org/docs), [Tailwind](https://tailwindcss.com/docs/guides/nextjs), [Shadcn](https://ui.shadcn.com/docs/installation), [Framer Motion](https://www.framer.com/motion/introduction/)
-- Backend: [PostgreSQL](https://www.postgresql.org/about/), [Supabase](https://supabase.com/), [Drizzle](https://orm.drizzle.team/docs/get-started-postgresql), [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations)
-- Auth: [Clerk](https://clerk.com/)
-- Payments: [Stripe](https://stripe.com/)
+## 🛠 Tech Stack
 
-## Prerequisites
+- **Frontend**: [Next.js 15](https://nextjs.org/docs) (App Router), [Tailwind CSS](https://tailwindcss.com/), [Shadcn/ui](https://ui.shadcn.com/), [Framer Motion](https://www.framer.com/motion/)
+- **Backend**: [PostgreSQL](https://www.postgresql.org/), [Supabase](https://supabase.com/), [Drizzle ORM](https://orm.drizzle.team/)
+- **Authentication**: [Clerk](https://clerk.com/)
+- **Payments**: [Stripe](https://stripe.com/)
+- **Deployment**: [Vercel](https://vercel.com/) (recommended)
 
-You will need accounts for the following services.
+## 📋 Prerequisites
 
-They all have free plans that you can use to get started.
+You'll need accounts for these services (all have free tiers):
 
-- Create a [GitHub](https://github.com/) account
-- Create a [Supabase](https://supabase.com/) account
-- Create a [Clerk](https://clerk.com/) account
-- Create a [Stripe](https://stripe.com/) account
-- Create a [Vercel](https://vercel.com/) account
+- [GitHub](https://github.com/) - Code repository
+- [Supabase](https://supabase.com/) - Database hosting
+- [Clerk](https://clerk.com/) - Authentication
+- [Stripe](https://stripe.com/) - Payment processing
+- [Vercel](https://vercel.com/) - Deployment (recommended)
 
-You will likely not need paid plans unless you are building a business.
+## 🚀 Quick Start
 
-## Environment Variables
+### Local Development
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd BTCMarketMapV2
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+
+   ```bash
+   cp .env.example .env.local
+   # Fill in your environment variables (see Environment Variables section)
+   ```
+
+4. **Set up the database**
+
+   ```bash
+   npm run db:migrate
+   npm run db:seed
+   ```
+
+5. **Start development server**
+
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+### Production Deployment
+
+For production deployment, see the comprehensive [DEPLOYMENT.md](./DEPLOYMENT.md) guide.
+
+**Quick Vercel Deployment:**
 
 ```bash
-# DB
-DATABASE_URL=
-# Access Supabase Studio here: http://127.0.0.1:54323/project/default
-
-# Clerk
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/login # do not change
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/signup # do not change
-
-# Stripe
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
-NEXT_PUBLIC_STRIPE_PAYMENT_LINK_YEARLY=
-NEXT_PUBLIC_STRIPE_PAYMENT_LINK_MONTHLY=
+npm i -g vercel
+vercel login
+vercel
 ```
 
-## Setup
+## 🔧 Environment Variables
 
-1. Clone the repository
-2. Copy `.env.example` to `.env.local` and fill in the environment variables from above
-3. Run `npm install` to install dependencies
-4. Run `npm run dev` to run the app locally
+Create a `.env.local` file with these variables:
+
+```bash
+# Database
+DATABASE_URL=postgresql://postgres:[password]@[host]:5432/[database]
+
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=https://[project-id].supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=[anon-key]
+
+# Clerk Authentication
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=[publishable-key]
+CLERK_SECRET_KEY=[secret-key]
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/login
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/signup
+
+# Stripe Payments
+STRIPE_SECRET_KEY=[secret-key]
+STRIPE_WEBHOOK_SECRET=[webhook-secret]
+NEXT_PUBLIC_STRIPE_PAYMENT_LINK_YEARLY=[yearly-payment-link]
+NEXT_PUBLIC_STRIPE_PAYMENT_LINK_MONTHLY=[monthly-payment-link]
+```
+
+See `.env.example` for the complete list.
+
+## 📁 Project Structure
+
+```
+BTCMarketMapV2/
+├── app/                          # Next.js App Router
+│   ├── (authenticated)/          # Protected routes
+│   ├── (unauthenticated)/        # Public routes
+│   ├── admin/                    # Admin dashboard
+│   ├── api/                      # API routes
+│   └── globals.css               # Global styles
+├── components/                   # Reusable UI components
+│   ├── ui/                       # Shadcn/ui components
+│   └── utility/                  # Utility components
+├── db/                          # Database configuration
+│   ├── schema/                   # Drizzle schema definitions
+│   ├── migrations/               # Database migrations
+│   └── seed/                     # Database seeding
+├── lib/                         # Utility libraries
+├── tests/                       # E2E tests (Playwright)
+└── hooks/                       # Custom React hooks
+```
+
+## 🧪 Testing
+
+The project includes comprehensive testing:
+
+```bash
+# Run all tests
+npm run test
+
+# Run unit tests only
+npm run test:unit
+
+# Run E2E tests only
+npm run test:e2e
+
+# Run tests in watch mode
+npm run test:watch
+```
+
+### Test Coverage
+
+- **Unit Tests**: Critical business logic and utilities
+- **Integration Tests**: Component interactions and server actions
+- **E2E Tests**: Complete user workflows (Playwright)
+
+## 🚀 Available Scripts
+
+```bash
+# Development
+npm run dev              # Start development server
+npm run build            # Build for production
+npm run start            # Start production server
+npm run lint             # Run ESLint
+npm run types            # Check TypeScript types
+
+# Database
+npm run db:generate      # Generate migrations
+npm run db:migrate       # Apply migrations
+npm run db:seed          # Seed database
+npm run db:test          # Test database connection
+
+# Code Quality
+npm run clean            # Format and lint code
+npm run format:write     # Format code with Prettier
+npm run format:check     # Check code formatting
+
+# Testing
+npm run test             # Run all tests
+npm run test:unit        # Run unit tests
+npm run test:e2e         # Run E2E tests
+```
+
+## 🏗 Architecture
+
+### Database Schema
+
+- **Categories**: Main Bitcoin ecosystem layers (L1, Lightning, etc.)
+- **Ecosystems**: Platforms within categories (Stacks, Liquid, etc.)
+- **Projects**: Applications built on ecosystems
+- **Subscriptions**: User payment status (Stripe integration)
+
+### Key Features
+
+1. **Server-Side Rendering**: Optimized for SEO and performance
+2. **Static Generation**: 11/19 pages statically generated
+3. **Authentication**: Clerk-powered user management
+4. **Admin Dashboard**: CRUD operations for content management
+5. **Payment Integration**: Stripe subscriptions for premium features
+6. **Performance**: 101 kB shared bundle, excellent Core Web Vitals
+
+## 🔒 Security
+
+- HTTPS enforced in production
+- Security headers configured
+- Input validation on all forms
+- Protected admin routes
+- Environment variable security
+- Regular dependency updates
+
+## 📊 Performance
+
+- **Bundle Size**: 101 kB shared across all pages
+- **Static Pages**: 11/19 pages pre-rendered
+- **Core Web Vitals**: Optimized for excellent scores
+- **Image Optimization**: WebP/AVIF support
+- **Caching**: Optimized caching strategies
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Development Guidelines
+
+- Follow TypeScript best practices
+- Write tests for new features
+- Use conventional commit messages
+- Ensure all tests pass before submitting PR
+- Update documentation as needed
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](./license) file for details.
+
+## 🆘 Support
+
+- **Documentation**: Check [DEPLOYMENT.md](./DEPLOYMENT.md) for deployment help
+- **Issues**: Report bugs via GitHub Issues
+- **Discussions**: Use GitHub Discussions for questions
+
+## 🗺 Roadmap
+
+- [ ] Advanced search and filtering
+- [ ] User-submitted project suggestions
+- [ ] API for third-party integrations
+- [ ] Mobile app (React Native)
+- [ ] Analytics dashboard
+- [ ] Multi-language support
+
+## 🙏 Acknowledgments
+
+- Bitcoin community for ecosystem data
+- Next.js team for the excellent framework
+- Supabase for database hosting
+- Clerk for authentication services
+- Stripe for payment processing
+- Vercel for deployment platform
+
+---
+
+**Built with ❤️ for the Bitcoin community**

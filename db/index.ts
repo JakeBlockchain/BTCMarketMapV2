@@ -2,6 +2,15 @@ import { config } from "dotenv"
 import { drizzle as drizzlePostgres } from "drizzle-orm/postgres-js"
 import postgres from "postgres"
 import { customers } from "./schema/customers"
+import {
+  categories,
+  ecosystems,
+  projects,
+  subscriptions,
+  categoriesRelations,
+  ecosystemsRelations,
+  projectsRelations
+} from "./schema/index"
 
 config({ path: ".env.local" })
 
@@ -12,8 +21,15 @@ if (!databaseUrl) {
 
 const dbSchema = {
   // tables
-  customers
+  customers,
+  categories,
+  ecosystems,
+  projects,
+  subscriptions,
   // relations
+  categoriesRelations,
+  ecosystemsRelations,
+  projectsRelations
 }
 
 function initializeDb(url: string) {

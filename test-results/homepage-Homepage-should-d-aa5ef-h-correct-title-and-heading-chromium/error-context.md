@@ -1,0 +1,237 @@
+# Page snapshot
+
+```yaml
+- text: 🧡 Welcome fellow Bitcoiner
+- button "Dismiss banner"
+- banner:
+  - navigation "Global":
+    - link "Bitcoin Market Map":
+      - /url: /
+    - link "Market Map":
+      - /url: /market-map
+    - link "About":
+      - /url: /about
+    - link "Features":
+      - /url: /features
+    - link "Contact":
+      - /url: /contact
+    - button "Toggle theme"
+- main:
+  - link "⭐️ 100% Free & Open Source":
+    - /url: https://github.com/mckaywrigley/mckays-app-template
+  - heading "Bitcoin Ecosystem Market Map" [level=1]
+  - paragraph: Explore the comprehensive landscape of Bitcoin development across layers, protocols, and projects - discover the future of Bitcoin innovation.
+  - link "Explore Market Map":
+    - /url: /market-map
+  - link "Star On GitHub":
+    - /url: https://github.com/mckaywrigley/mckays-app-template
+  - text: ✓ Comprehensive Coverage ✓ Real-time Data ✓ Open Source
+  - heading "Built with the best" [level=2]
+  - paragraph: Trusted technologies that power thousands of production applications
+  - text: Next.js TypeScript Tailwind CSS Clerk Stripe PostgreSQL Drizzle ORM PostHog Next.js TypeScript Tailwind CSS Clerk Stripe PostgreSQL Drizzle ORM PostHog
+  - term: GitHub Stars
+  - definition: 500+
+  - term: Active Projects
+  - definition: 1000+
+  - term: Contributors
+  - definition: 50+
+  - heading "See it in action" [level=2]
+  - paragraph: Watch how quickly you can go from clone to deployed app
+  - code: $ git clone github.com/mckaywrigley/template $ cd template $ npm install $ cp .env.example .env.local $ npm run dev ✓ Ready in 3s ○ Compiling / ... ✓ Compiled successfully ✓ Ready at http://localhost:3000
+  - button
+  - heading "Quick Start Demo" [level=3]
+  - paragraph: From clone to deploy in minutes
+  - text: 5 min Fast TypeScript Next.js 15 Tailwind CSS Clerk Auth Stripe
+  - heading "Everything Included" [level=2]
+  - paragraph: Start with a complete foundation
+  - paragraph: No more setup headaches. Clone the repo and start building your product immediately.
+  - term: Authentication Ready
+  - definition:
+    - paragraph: Clerk authentication pre-configured with protected routes, user management, and session handling.
+  - term: Payments Integration
+  - definition:
+    - paragraph: Stripe integration with webhook support, subscription management, and checkout flows.
+  - term: Database Setup
+  - definition:
+    - paragraph: PostgreSQL with Drizzle ORM configured and ready. Includes migrations and type-safe queries.
+  - term: Modern UI Components
+  - definition:
+    - paragraph: Beautiful, accessible components with shadcn/ui. Dark mode support and Tailwind CSS v4.
+  - term: TypeScript First
+  - definition:
+    - paragraph: Full TypeScript support with strict mode, path aliases, and type safety throughout.
+  - term: Analytics Built-in
+  - definition:
+    - paragraph: PostHog analytics integration for tracking user behavior and product metrics.
+  - heading "Testimonials" [level=2]
+  - paragraph: Loved by developers worldwide
+  - blockquote:
+    - paragraph: "\"This template saved me weeks of setup time. I went from idea to deployed MVP in just 2 days. The authentication and payment integration alone would have taken me a week to configure properly.\""
+  - text: Alex Chen Indie Hacker
+  - blockquote:
+    - paragraph: "\"As a non-technical founder, this template was a godsend. Clean code, great documentation, and everything just works out of the box. My developer was impressed with the code quality.\""
+  - text: Sarah Williams Startup Founder
+  - blockquote:
+    - paragraph: "\"I've tried many boilerplates, but this one hits different. Modern stack, best practices, and actually production-ready. It's now my go-to starting point for all client projects.\""
+  - text: Mike Johnson Full Stack Developer
+  - heading "Simple, transparent pricing" [level=2]
+  - paragraph: Choose the plan that fits your needs. Cancel anytime.
+  - heading "Pro Monthly" [level=3]
+  - paragraph: Perfect for growing businesses
+  - paragraph: $19 /month
+  - list:
+    - listitem: Unlimited projects
+    - listitem: Advanced analytics
+    - listitem: Priority support
+    - listitem: Custom integrations
+    - listitem: API access
+    - listitem: Export data
+  - button "Configure payment link" [disabled]
+  - text: BEST VALUE
+  - heading "Pro Yearly" [level=3]
+  - paragraph: Best value - save $38 per year
+  - paragraph: $190 /year
+  - list:
+    - listitem: Everything in monthly
+    - listitem: 2 months free
+    - listitem: Early access to features
+    - listitem: Custom onboarding
+    - listitem: Dedicated account manager
+    - listitem: 99.9% uptime SLA
+  - button "Configure payment link" [disabled]
+  - paragraph: All plans include a 30-day money-back guarantee. No questions asked.
+  - heading "Frequently asked questions" [level=2]
+  - paragraph: Everything you need to know about the template. Can't find what you're looking for? Open an issue on GitHub.
+  - button "What's included in the template?"
+  - button "How do I get started?"
+  - button "Is this really free?"
+  - button "Can I customize everything?"
+  - button "What about deployment?"
+  - button "How do I get help if I'm stuck?"
+  - heading "Ready to build something amazing?" [level=2]
+  - paragraph: Stop wasting time on boilerplate. Clone this template and start shipping your product today.
+  - link "Clone Template":
+    - /url: https://github.com/mckaywrigley/mckays-app-template
+  - link "View features":
+    - /url: "#features"
+  - term: Time to First Deploy
+  - definition: < 5 min
+  - term: Production Ready
+  - definition: 100%
+  - term: License
+  - definition: MIT
+- contentinfo "Footer":
+  - heading "Footer" [level=2]
+  - link "Bitcoin Market Map":
+    - /url: /
+  - paragraph: Explore the comprehensive landscape of Bitcoin ecosystem projects, platforms, and innovations. Discover the future of Bitcoin development.
+  - link "X":
+    - /url: https://x.com/bitcoinmarketmap
+  - link "GitHub":
+    - /url: https://github.com/bitcoinmarketmap
+  - link "YouTube":
+    - /url: https://youtube.com/@bitcoinmarketmap
+  - heading "Product" [level=3]
+  - list:
+    - listitem:
+      - link "Market Map":
+        - /url: /market-map
+    - listitem:
+      - link "Features":
+        - /url: /features
+    - listitem:
+      - link "Pricing":
+        - /url: /pricing
+    - listitem:
+      - link "Ecosystem Directory":
+        - /url: /market-map
+  - heading "Company" [level=3]
+  - list:
+    - listitem:
+      - link "About":
+        - /url: /about
+    - listitem:
+      - link "Contact":
+        - /url: /contact
+    - listitem:
+      - link "Blog":
+        - /url: "#"
+    - listitem:
+      - link "Press":
+        - /url: "#"
+  - heading "Resources" [level=3]
+  - list:
+    - listitem:
+      - link "Bitcoin Resources":
+        - /url: "#"
+    - listitem:
+      - link "Developer Guides":
+        - /url: "#"
+    - listitem:
+      - link "API Documentation":
+        - /url: "#"
+    - listitem:
+      - link "Community":
+        - /url: "#"
+  - heading "Legal" [level=3]
+  - list:
+    - listitem:
+      - link "Privacy Policy":
+        - /url: "#"
+    - listitem:
+      - link "Terms of Service":
+        - /url: "#"
+    - listitem:
+      - link "Cookie Policy":
+        - /url: "#"
+    - listitem:
+      - link "License":
+        - /url: "#"
+  - paragraph: © 2025 Bitcoin Market Map. All rights reserved.
+- button "Dismiss":
+  - img
+- paragraph: Love this template?
+- paragraph: Star us on GitHub!
+- link "Start Building":
+  - /url: https://github.com/mckaywrigley/mckays-app-template
+- paragraph: "The #1 Full Stack App Template"
+- button "Scroll down": Scroll for more
+- text: xl
+- region "Notifications alt+T"
+- alert
+- button "Open issues overlay":
+  - img
+  - text: 1 Issue
+- navigation:
+  - button "previous" [disabled]:
+    - img "previous"
+  - text: 1/1
+  - button "next" [disabled]:
+    - img "next"
+- img
+- link "Next.js 15.3.3 (stale) Turbopack":
+  - /url: https://nextjs.org/docs/messages/version-staleness
+  - img
+  - text: Next.js 15.3.3 (stale) Turbopack
+- img
+- dialog "Build Error":
+  - text: Build Error
+  - button "Copy Stack Trace":
+    - img
+  - link "Go to related documentation":
+    - /url: https://nextjs.org/docs/app/api-reference/directives/use-client
+    - img
+  - link "Learn more about enabling Node.js inspector for server code with Chrome DevTools":
+    - /url: https://nextjs.org/docs/app/building-your-application/configuring/debugging#server-side-code
+    - img
+  - paragraph: Ecmascript file had an error
+  - img
+  - text: ./app/(unauthenticated)/(marketing)/ecosystem/[slug]/page.tsx (299:23)
+  - button "Open in editor":
+    - img
+  - text: "Ecmascript file had an error 297 | 298 | // Generate metadata for SEO > 299 | export async function generateMetadata({ params }: EcosystemDetailPageProps) { | ^^^^^^^^^^^^^^^^ 300 | const ecosystem = await getEcosystemDetails(params.slug) 301 | 302 | if (!ecosystem) { You are attempting to export \"generateMetadata\" from a component marked with \"use client\", which is disallowed. Either remove the export, or the \"use client\" directive. Read more:"
+  - link "https://nextjs.org/docs/app/api-reference/directives/use-client":
+    - /url: https://nextjs.org/docs/app/api-reference/directives/use-client
+- contentinfo:
+  - paragraph: This error occurred during the build process and can only be dismissed by fixing the error.
+```

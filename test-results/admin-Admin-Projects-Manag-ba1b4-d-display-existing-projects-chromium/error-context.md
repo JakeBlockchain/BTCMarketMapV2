@@ -1,0 +1,144 @@
+# Page snapshot
+
+```yaml
+- text: 🧡 Welcome fellow Bitcoiner
+- button "Dismiss banner"
+- banner:
+  - navigation "Global":
+    - link "Bitcoin Market Map":
+      - /url: /
+    - link "Market Map":
+      - /url: /market-map
+    - link "About":
+      - /url: /about
+    - link "Features":
+      - /url: /features
+    - link "Contact":
+      - /url: /contact
+    - button "Toggle theme"
+- text: Welcome back!
+- heading "Continue building amazing products" [level=1]
+- paragraph: Pick up right where you left off with your projects.
+- paragraph: Lightning Fast
+- paragraph: Built for speed
+- paragraph: Secure Auth
+- paragraph: Enterprise ready
+- paragraph: Modern Stack
+- paragraph: Latest tech
+- paragraph: Ship Faster
+- paragraph: Deploy today
+- paragraph: 2,000+
+- paragraph: Active developers
+- paragraph: 50k+
+- paragraph: Projects created
+- paragraph: 4.9/5
+- paragraph: Average rating
+- paragraph: Secure & Trusted
+- paragraph: SOC2 compliant infrastructure
+- heading "Sign in to your account" [level=2]
+- paragraph:
+  - text: Don't have an account?
+  - link "Start building for free":
+    - /url: /signup
+- heading "Sign in to BTCMarketMap" [level=1]
+- paragraph: Welcome back! Please sign in to continue
+- button "Sign in with Google Continue with Google":
+  - img "Sign in with Google"
+  - text: Continue with Google
+- paragraph: or
+- text: Email address
+- textbox "Email address"
+- text: Password
+- textbox "Password"
+- button "Show password":
+  - img
+- button "Continue":
+  - text: Continue
+  - img
+- text: Don’t have an account?
+- link "Sign up":
+  - /url: http://localhost:3000/signup#/?redirect_url=http%3A%2F%2Flocalhost%3A3000%2Fadmin%2Fprojects
+- paragraph: Secured by
+- link "Clerk logo":
+  - /url: https://go.clerk.com/components
+  - img
+- paragraph: Development mode
+- contentinfo "Footer":
+  - heading "Footer" [level=2]
+  - link "Bitcoin Market Map":
+    - /url: /
+  - paragraph: Explore the comprehensive landscape of Bitcoin ecosystem projects, platforms, and innovations. Discover the future of Bitcoin development.
+  - link "X":
+    - /url: https://x.com/bitcoinmarketmap
+  - link "GitHub":
+    - /url: https://github.com/bitcoinmarketmap
+  - link "YouTube":
+    - /url: https://youtube.com/@bitcoinmarketmap
+  - heading "Product" [level=3]
+  - list:
+    - listitem:
+      - link "Market Map":
+        - /url: /market-map
+    - listitem:
+      - link "Features":
+        - /url: /features
+    - listitem:
+      - link "Pricing":
+        - /url: /pricing
+    - listitem:
+      - link "Ecosystem Directory":
+        - /url: /market-map
+  - heading "Company" [level=3]
+  - list:
+    - listitem:
+      - link "About":
+        - /url: /about
+    - listitem:
+      - link "Contact":
+        - /url: /contact
+    - listitem:
+      - link "Blog":
+        - /url: "#"
+    - listitem:
+      - link "Press":
+        - /url: "#"
+  - heading "Resources" [level=3]
+  - list:
+    - listitem:
+      - link "Bitcoin Resources":
+        - /url: "#"
+    - listitem:
+      - link "Developer Guides":
+        - /url: "#"
+    - listitem:
+      - link "API Documentation":
+        - /url: "#"
+    - listitem:
+      - link "Community":
+        - /url: "#"
+  - heading "Legal" [level=3]
+  - list:
+    - listitem:
+      - link "Privacy Policy":
+        - /url: "#"
+    - listitem:
+      - link "Terms of Service":
+        - /url: "#"
+    - listitem:
+      - link "Cookie Policy":
+        - /url: "#"
+    - listitem:
+      - link "License":
+        - /url: "#"
+  - paragraph: © 2025 Bitcoin Market Map. All rights reserved.
+- button "Dismiss":
+  - img
+- paragraph: Love this template?
+- paragraph: Star us on GitHub!
+- link "Start Building":
+  - /url: https://github.com/mckaywrigley/mckays-app-template
+- paragraph: "The #1 Full Stack App Template"
+- text: xl
+- region "Notifications alt+T"
+- alert
+```

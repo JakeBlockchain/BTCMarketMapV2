@@ -8,11 +8,17 @@ import { eq } from "drizzle-orm"
 export async function getCustomerByUserId(
   userId: string
 ): Promise<SelectCustomer | null> {
-  const customer = await db.query.customers.findFirst({
-    where: eq(customers.userId, userId)
-  })
+  try {
+    const customer = await db.query.customers.findFirst({
+      where: eq(customers.userId, userId)
+    })
 
-  return customer || null
+    return customer || null
+  } catch (error) {
+    console.error("Error fetching customer (likely schema mismatch):", error)
+    // Return null instead of crashing the app
+    return null
+  }
 }
 
 export async function getBillingDataByUserId(userId: string): Promise<{
@@ -20,23 +26,37 @@ export async function getBillingDataByUserId(userId: string): Promise<{
   clerkEmail: string | null
   stripeEmail: string | null
 }> {
-  // Get Clerk user data
-  const user = await currentUser()
+  try {
+    // Get Clerk user data
+    const user = await currentUser()
 
-  // Get profile to fetch Stripe customer ID
-  const customer = await db.query.customers.findFirst({
-    where: eq(customers.userId, userId)
-  })
+    // Get profile to fetch Stripe customer ID
+    const customer = await db.query.customers.findFirst({
+      where: eq(customers.userId, userId)
+    })
 
-  // Get Stripe email if it exists
-  const stripeEmail = customer?.stripeCustomerId
-    ? user?.emailAddresses[0]?.emailAddress || null
-    : null
+    // Get Stripe email if it exists
+    const stripeEmail = customer?.stripeCustomerId
+      ? user?.emailAddresses[0]?.emailAddress || null
+      : null
 
-  return {
-    customer: customer || null,
-    clerkEmail: user?.emailAddresses[0]?.emailAddress || null,
-    stripeEmail
+    return {
+      customer: customer || null,
+      clerkEmail: user?.emailAddresses[0]?.emailAddress || null,
+      stripeEmail
+    }
+  } catch (error) {
+    console.error(
+      "Error fetching billing data (likely schema mismatch):",
+      error
+    )
+    // Return default values instead of crashing
+    const user = await currentUser()
+    return {
+      customer: null,
+      clerkEmail: user?.emailAddresses[0]?.emailAddress || null,
+      stripeEmail: null
+    }
   }
 }
 

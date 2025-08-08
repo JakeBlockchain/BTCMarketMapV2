@@ -19,8 +19,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Mckay's App Template",
-  description: "The easiest way to start your next project."
+  title: "Bitcoin Market Map",
+  description:
+    "Only the shit that's actually live. A map of Bitcoin projects, ecosystems, and innovations."
 }
 
 export default function RootLayout({
