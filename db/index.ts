@@ -38,11 +38,20 @@ let _db: ReturnType<typeof initializeDb> | null = null
 export function getDb() {
   const databaseUrl = process.env.DATABASE_URL
   if (!databaseUrl) {
-    throw new Error("DATABASE_URL is not set")
+    throw new Error(
+      "DATABASE_URL environment variable is not set. Please check your environment configuration."
+    )
   }
 
   if (!_db) {
-    _db = initializeDb(databaseUrl)
+    try {
+      _db = initializeDb(databaseUrl)
+    } catch (error) {
+      console.error("Failed to initialize database connection:", error)
+      throw new Error(
+        `Database connection failed: ${error instanceof Error ? error.message : "Unknown error"}`
+      )
+    }
   }
 
   return _db

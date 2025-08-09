@@ -272,19 +272,25 @@ export async function createCategory(
   data: CreateCategoryData
 ): Promise<ActionResult> {
   try {
+    console.log("Creating category with data:", data)
+
     const db = getDb()
+    console.log("Database connection established")
+
     // Check for duplicate slug
     const existingCategory = await db.query.categories.findFirst({
       where: eq(categories.slug, data.slug)
     })
 
     if (existingCategory) {
+      console.log("Category with slug already exists:", data.slug)
       return {
         success: false,
         error: "A category with this slug already exists"
       }
     }
 
+    console.log("Inserting new category...")
     const [newCategory] = await db
       .insert(categories)
       .values({
@@ -296,6 +302,8 @@ export async function createCategory(
       })
       .returning()
 
+    console.log("Category created successfully:", newCategory)
+
     revalidatePath("/admin")
     revalidatePath("/")
 
@@ -305,9 +313,16 @@ export async function createCategory(
     }
   } catch (error) {
     console.error("Error creating category:", error)
+    console.error("Error details:", {
+      message: error instanceof Error ? error.message : "Unknown error",
+      stack: error instanceof Error ? error.stack : undefined,
+      data
+    })
+
     return {
       success: false,
-      error: "Failed to create category"
+      error:
+        error instanceof Error ? error.message : "Failed to create category"
     }
   }
 }
