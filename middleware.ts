@@ -4,34 +4,21 @@ import { NextResponse } from "next/server"
 const isProtectedRoute = createRouteMatcher(["/dashboard(.*)", "/admin(.*)"])
 
 export default clerkMiddleware(async (auth, req) => {
-  try {
-    // Check if Clerk is properly configured
-    if (
-      !process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY &&
-      !process.env.CLERK_SECRET_KEY
-    ) {
-      // If no Clerk config, just redirect protected routes to login
-      if (isProtectedRoute(req)) {
-        return NextResponse.redirect(new URL("/login", req.url))
+  // For protected routes, check authentication
+  if (isProtectedRoute(req)) {
+    try {
+      const { userId, redirectToSignIn } = await auth()
+
+      if (!userId) {
+        return redirectToSignIn()
       }
-      return NextResponse.next()
-    }
-
-    const { userId, redirectToSignIn } = await auth()
-
-    if (!userId && isProtectedRoute(req)) {
-      return redirectToSignIn()
-    }
-
-    return NextResponse.next()
-  } catch (error) {
-    console.error("Middleware error:", error)
-    // If middleware fails, allow the request to continue for non-protected routes
-    if (isProtectedRoute(req)) {
+    } catch (error) {
+      // If auth fails, redirect to login
       return NextResponse.redirect(new URL("/login", req.url))
     }
-    return NextResponse.next()
   }
+
+  return NextResponse.next()
 })
 
 export const config = {
